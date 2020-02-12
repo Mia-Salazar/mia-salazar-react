@@ -7,11 +7,16 @@ import Header from './components/Header';
 import { Title } from './components/Title';
 import Search from './components/Search';
 import Footer from './components/Footer';
+import {Results} from './components/Results';
+import {Detail} from './pages/Detail';
 
 class App extends Component {
-  state = {results : []}
+  state = {
+    initialSearch: false,
+    results : []
+  }
   _handleResults = (results) =>{
-    this.setState({results})
+    this.setState({results, initialSearch:true })
   }
   _sortMovies(a,b){
     return parseInt(a.Year)  - parseInt(b.Year);
@@ -19,16 +24,30 @@ class App extends Component {
   _renderResults () {
     const { results} = this.state
     return results.sort(this._sortMovies).map(movie => {
-      return <div className="result-item" key={movie.imdbID}>
-          <div className="result-texts">
-            <h4><span>Título de la película:</span> {movie.Title}</h4>
-            <p><span>Año de estreno:</span> {movie.Year}</p>
-          </div>
-          <img src={movie.Poster} alt={movie.Title}/>
-        </div>
+      return (
+        <Results
+          id={movie.imdbID}
+          key={movie.imdbID}
+          title={movie.Title}
+          year={movie.Year}
+          poster={movie.Poster}
+        />
+      ) 
+
     })
   }
+  _renderResultsForm(){
+    return this.state.results.length === 0
+    ? <div className="results-options"><h3 className="title is-3">Sin resultados</h3></div>
+    : <div className="results-options"><h3 className="title is-3">Con resultados</h3><p>Número total de resultados: {this.state.results.length}</p><div className="result-list">{this._renderResults()}</div></div>
+  }
   render () {
+    const url = new URL(document.location)
+    const hasId = url.searchParams.has('id')
+
+    if(hasId){
+      return <Detail id={url.searchParams.get('id')}/>
+    }
     return (
       <div className="App">
         <Header />
@@ -40,7 +59,7 @@ class App extends Component {
           </section>
           <Search onResults={this._handleResults} />
           <section className="results-container">
-            {this.state.results.length === 0 ? <div className="results-list"><h3 className="title is-3">Sin resultados</h3> <p>Haz una búsqueda</p></div> : <div className="results-list"><h3 className="title is-3">Con resultados</h3><p>Número total de resultados: {this.state.results.length}</p><div className="result-list">{this._renderResults()}</div></div>}
+            {this.state.initialSearch ? this._renderResultsForm(): <h3 className="title is-3 results-options">Haz tu primera búsqueda</h3>}
           </section>
         </main>
         <Footer />

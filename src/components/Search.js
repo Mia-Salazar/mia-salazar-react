@@ -21,7 +21,7 @@ export class Search extends Component {
             .then(res => res.json())
             .then (results => {
                 console.log(results)
-                const {Search, totalResults} = results
+                const {Search = [], totalResults = "0"} = results
                 this.props.onResults(Search)
             })
     }
@@ -46,7 +46,7 @@ export class Search extends Component {
                     <div className="search-number-number-container">
                         <Headings>Número de búsquedas realizadas con éxito</Headings>
                         <p className="number">{this.state.contador}</p>
-                        {this.state.contador === 0 ? <p>Pulsa en buscar para empezar a sumar búsquedas exitosas</p> : <p>The more the merrier, ¡sigue buscando!</p>}
+                        {this.state.contador === 0 ? <p className="search-start">Pulsa en buscar para empezar a sumar búsquedas exitosas</p> : <p className="search-start">The more the merrier, ¡sigue buscando!</p>}
                     </div>
                     <figure>
                         <img src={logo} alt="camara"/>

@@ -26,11 +26,11 @@ class Header extends React.Component {
                 Autora
               </a>
               <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link">
+                <div className="navbar-link">
                   Utilidades
-                </a>
+                </div>
                 <div className="navbar-dropdown">
-                  <a className="navbar-item">
+                  <a className="navbar-item" href="#search">
                     Busca tu peli
                   </a>
                 </div>
