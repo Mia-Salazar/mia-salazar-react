@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
-import 'bulma/css/bulma.css'
+import {Link} from 'react-router-dom'
 
 export class Results extends Component {
     static propTypes = {
@@ -17,7 +17,7 @@ export class Results extends Component {
                 <div className="content result-texts">
                     <h4><span>Título de la película:</span> {title}</h4>
                     <p><span>Año de estreno:</span> {year}</p>
-                    <a href={`?id=${id}`} className="button is-info">Más información</a>
+                    <Link to={`/detail/${id}`} className="button is-info">Más información</Link>
                 </div>
                 <div className="card-image">
                     <figure className="image">

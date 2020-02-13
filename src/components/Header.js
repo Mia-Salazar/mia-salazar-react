@@ -9,7 +9,7 @@ class Header extends React.Component {
       <header>
         <nav className="navbar is-fixed-top is-link" role="navigation" aria-label="main navigation">
           <div className="navbar-brand">
-            <a className="navbar-item main-title" href="https://bulma.io">
+            <a className="navbar-item main-title" href="/">
               Peliteca
             </a>
 						<FontAwesomeIcon icon={faAsterisk} />
