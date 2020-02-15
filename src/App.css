@@ -1,12 +1,12 @@
 html {scroll-behavior: smooth;}
 
 /*Header*/
-.navbar.is-fixed-top{background-color: #15405C;}
+.navbar.is-fixed-top{display: flex;background-color: #15405C;}
 .main-title {position: relative;padding: 15px 0 15px 15px;font-size: 32px; font-weight: bold;font-family: 'Montserrat', sans-serif; color: #fff}
 .navbar.is-fixed-top .navbar-brand .main-title:hover{background-color: #15405C;}
 h1, h2, h3, h4, h5, h6 {font-family: 'Montserrat', sans-serif;}
 p, span, button {font-family: 'Pontano Sans', sans-serif;} 
-.navbar-start {margin-left: auto; margin-right: 0;
+.navbar-start {display: flex;align-items: center;justify-content: flex-start;margin-left: auto; margin-right: 0;
 }
 .navbar.is-danger {background-color: #15405C;}
 .navbar-brand {align-items: center;}
@@ -18,6 +18,19 @@ p, span, button {font-family: 'Pontano Sans', sans-serif;}
   to {
       -webkit-transform: rotate(359deg);
   }
+}
+.navbar.is-fixed-top.is-link .navbar-brand a.navbar-item.main-title:hover{
+  background-color: #15405C;
+}
+.navbar-menu {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+.navbar-item{
+  color: white;
 }
 /*main*/
 main {padding-top: 78px;}
@@ -224,6 +237,11 @@ button.button.is-info:hover, a.button.is-info:hover {
   padding-left: 20px;
   padding-right: 20px;
 }
+.detail-item .button.is-info{
+  display: flex;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;}
 .score{
   display: flex;
   flex-direction: column;
@@ -233,7 +251,7 @@ button.button.is-info:hover, a.button.is-info:hover {
   height: 150px;
   position: absolute;
   left: calc(50% - 75px);
-  top: -75px;
+  top: -180px;
   padding: 20px;
   background-color: black;;
 }
@@ -252,7 +270,7 @@ button.button.is-info:hover, a.button.is-info:hover {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 120px auto 80px auto;
+  margin: 75px auto 80px auto;
 }
 .detail-container .card .result-texts{
   padding: 30px;

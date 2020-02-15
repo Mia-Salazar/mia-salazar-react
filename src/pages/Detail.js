@@ -44,9 +44,9 @@ export class Detail extends Component {
                     <h1 className="detail-title">{Title}</h1>
                 </div>
                 <section className="detail-item">
-                    <div class="score">
-                        <p>Puntuación</p>
-                        <h2>{Metascore}</h2>
+                    <div className="score">
+                    <p>{this.state.movie.Metascore !== "N/A" ? <span>Puntuación</span> : <span>Puntuación desconocida</span>}</p>
+                    <h2>{this.state.movie.Metascore !== "N/A" ? Metascore : ""}</h2>
                     </div>
                     <button className="button is-info" onClick={this._goBack}>Ir atrás</button>
                     <article className="card result-item">
