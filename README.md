@@ -35,9 +35,9 @@ $npm run build
 
 ## Built With
 
-* [React (version before 16.8](https://es.reactjs.org/) - The web framework used
+* [React (version before 16.8)](https://es.reactjs.org/) - The web framework used
 * [Bulma](https://bulma.io/) - CSS Framework
-* [OMBD API](http://www.omdbapi.com//) - For movies information
+* [OMBD API](http://www.omdbapi.com/) - For movies information
 
 ## Authors
 
